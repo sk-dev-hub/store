@@ -461,8 +461,11 @@
                                 <div class="text-2xl font-bold text-slate-800 mb-1">1000</div>
                                 <div class="text-sm"><span class="font-medium text-emerald-500">+33 (4,7%)</span> - Сегодня</div>
                             </header>
+                            <button class="btn w-full mt-3 border-slate-200 hover:border-slate-300 text-indigo-500">Подробнее</button>
                         </div>
+
                     </div>
+
 
                     <div class="flex flex-col col-span-full sm:col-span-6 xl:col-span-3 bg-white shadow-lg rounded-sm border border-slate-200">
                         <div class="px-5 pt-5">
@@ -471,6 +474,7 @@
                                 <div class="text-2xl font-bold text-slate-800 mb-1">200</div>
                                 <div class="text-sm"><span class="font-medium text-emerald-500">+142 (3,7%)</span> - Сегодня</div>
                             </header>
+                            <button class="btn w-full mt-3 border-slate-200 hover:border-slate-300 text-indigo-500">Подробнее</button>
                         </div>
                     </div>
 
@@ -481,6 +485,7 @@
                                 <div class="text-2xl font-bold text-slate-800 mb-1">1102</div>
                                 <div class="text-sm"><span class="font-medium text-emerald-500">+5 (9,2%)</span> - Сегодня</div>
                             </header>
+                            <button class="btn w-full mt-3 border-slate-200 hover:border-slate-300 text-indigo-500">Подробнее</button>
                         </div>
                     </div>
 
@@ -491,6 +496,7 @@
                                 <div class="text-2xl font-bold text-slate-800 mb-1">328</div>
                                 <div class="text-sm"><span class="font-medium text-emerald-500">+3 (4%)</span> - Сегодня</div>
                             </header>
+                            <button class="btn w-full mt-3 border-slate-200 hover:border-slate-300 text-indigo-500">Подробнее</button>
                         </div>
                     </div>
 

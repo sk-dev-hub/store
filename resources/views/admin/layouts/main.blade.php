@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Panel</title>
-    
-    <link href="{{ asset('build/assets/mosaic/css/vendors/flatpickr.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('build/assets/mosaic/css/style_main.css') }}" rel="stylesheet">
 
+    @vite( 'resources/css/mosaic/vendors/flatpickr.min.css')
+
+    @vite( 'resources/css/mosaic/style_main.css')
     
     @vite(
         'resources/css/app.css',
@@ -27,13 +27,14 @@
         @yield('content')
     </div>
 
-    <script src="{{ asset('build/assets/mosaic/js/vendors/alpinejs.min.js') }}"></script>
-    <script src="{{ asset('build/assets/mosaic/js/vendors/chart.js') }}"></script>
-    <script src="{{ asset('build/assets/mosaic/js/vendors/moment.js') }}"></script>
-    <script src="{{ asset('build/assets/mosaic/js/vendors/chartjs-adapter-moment.js') }}"></script>
-    <script src="{{ asset('build/assets/mosaic/js/dashboard-charts.js') }}"></script>
-    <script src="{{ asset('build/assets/mosaic/js/vendors/flatpickr.js') }}"></script>
-    <script src="{{ asset('build/assets/mosaic/js/flatpickr-init.js') }}"></script>
+
+    @vite('resources/js/mosaic/vendors/alpinejs.min.js')
+    {{-- @vite('resources/js/mosaic/vendors/chart.js') --}}
+    {{-- @vite('resources/js/mosaic/vendors/moment.js') --}}
+    {{-- @vite('resources/js/mosaic/dashboard-charts.js') --}}
+    @vite('resources/js/mosaic/vendors/flatpickr.js')
+    @vite('resources/js/mosaic/flatpickr-init.js')
+
 
 
 </body>
