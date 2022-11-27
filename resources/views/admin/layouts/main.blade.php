@@ -6,11 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Panel</title>
 
-    @vite( 'resources/css/mosaic/vendors/flatpickr.min.css')
+    @vite( 'resources/css/mosaic/vendors/flatpickr.min.css' )
 
-    @vite( 'resources/css/mosaic/style_main.css')
+    {{-- @vite( 'resources/css/mosaic/style_main.css')
+    @vite( 'resources/css/mosaic/style.css') --}}
+
     
     @vite(
+        'resources/css/mosaic/style_main.css',
         'resources/css/app.css',
         'resources/js/app.js',
         )
@@ -23,8 +26,32 @@
     x-data="{ sidebarOpen: false, sidebarExpanded: localStorage.getItem('sidebar-expanded') == 'true' }"
     x-init="$watch('sidebarExpanded', value => localStorage.setItem('sidebar-expanded', value))"
 >
-    <div>
-        @yield('content')
+
+<script>
+    if (localStorage.getItem('sidebar-expanded') == 'true') {
+        document.querySelector('body').classList.add('sidebar-expanded');
+    } else {
+        document.querySelector('body').classList.remove('sidebar-expanded');
+    }
+</script>
+
+    <!-- Page wrapper -->
+    <div class="flex h-screen overflow-hidden">
+
+        {{--Sidebar --}}
+        @include('admin.partials.sidebar')
+
+        
+        <!-- Content area -->
+        <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+        
+            <!-- Site header -->
+            @include('admin.partials.header')
+
+            
+            @yield('content')
+
+        </div>
     </div>
 
 
