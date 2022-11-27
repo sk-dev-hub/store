@@ -143,7 +143,7 @@
 
                         <!-- Теги -->
                         <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0">
-                            <a class="block text-slate-200 hover:text-white truncate transition duration-150" href="#0">
+                            <a class="block text-slate-200 hover:text-white truncate transition duration-150" href="{{ route('admin.tag.index') }}">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
                                         <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
