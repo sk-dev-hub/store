@@ -10,20 +10,20 @@
 
             <!-- Left: Title -->
             <div class="mb-4 sm:mb-0">
-                <h1 class="text-2xl md:text-3xl text-slate-800 font-bold">Категории ✨</h1>
+                <h1 class="text-2xl md:text-3xl text-slate-800 font-bold">Цвета ✨</h1>
             </div>
 
             <!-- Right: Actions -->
             <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
 
 
-                <!-- Create category button -->
+                <!-- Create color button -->
                 <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
                     <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                         <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                     </svg>
-                    <a href="{{ route('admin.category.create') }}">
-                        <span class="hidden xs:block ml-2">Создать категорию</span>
+                    <a href="{{ route('admin.color.create') }}">
+                        <span class="hidden xs:block ml-2">Создать цвет</span>
                     </a>
                 </button>
 
@@ -182,7 +182,7 @@
         <!-- Table -->
         <div class="bg-white shadow-lg rounded-sm border border-slate-200 mb-8">
             <header class="px-5 py-4">
-                <h2 class="font-semibold text-slate-800">Категорий <span class="text-slate-400 font-medium">67</span></h2>
+                <h2 class="font-semibold text-slate-800">Цвета <span class="text-slate-400 font-medium">67</span></h2>
             </header>
             <div x-data="handleSelect">
 
@@ -207,6 +207,9 @@
                                     <div class="font-semibold text-left">Название</div>
                                 </th>
                                 <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Цвет</div>
+                                </th>
+                                <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                     <div class="font-semibold text-left">Действия</div>
                                 </th>
                             </tr>
@@ -214,7 +217,7 @@
                         <!-- Table body -->
                         <tbody class="text-sm divide-y divide-slate-200">
                             <!-- Row -->
-                            @foreach ($categories as $category)      
+                            @foreach ($colors as $color)      
                             <tr>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                                     <div class="flex items-center">
@@ -225,18 +228,23 @@
                                     </div>
                                 </td>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <a href="{{ route('admin.category.show', $category->id) }}">
-                                        <div class="font-medium text-sky-500">#{{ $category->id }}</div>
+                                    <a href="{{ route('admin.color.show', $color->id) }}">
+                                        <div class="font-medium text-sky-500">#{{ $color->id }}</div>
                                     </a>
                                 </td>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <a href="{{ route('admin.category.show', $category->id) }}">
-                                        <div class="font-medium text-slate-800">{{ $category->title }}</div>
+                                    <a href="{{ route('admin.color.show', $color->id) }}">
+                                        <div class="font-medium text-slate-800">{{ $color->name }}</div>
                                     </a>
+                                </td>
+                                <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                    <div class="m-1.5">
+                                        <div class="rounded-full" style="width:24px; height:24px; background:{{ $color->name }}"></div>
+                                    </div>
                                 </td>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                                     <div class="space-x-1 flex flex-row">
-                                        <a href="{{ route('admin.category.edit', $category->id) }}">
+                                        <a href="{{ route('admin.color.edit', $color->id) }}">
                                             <button class="text-slate-400 hover:text-slate-500 rounded-full">
                                                 <span class="sr-only">Редактировать</span>
                                                 <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32">
@@ -244,18 +252,18 @@
                                                 </svg>
                                             </button>
                                         </a>
-                                            
-                                            <form action="{{ route('admin.category.delete', $category->id) }}"  method="post">
-                                                @csrf
-                                                @method('delete')                  
-                                                <button class="text-rose-500 hover:text-rose-600 rounded-full cursor-pointer">
-                                                <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32">
-                                                    <path d="M13 15h2v6h-2zM17 15h2v6h-2z" />
-                                                    <path d="M20 9c0-.6-.4-1-1-1h-6c-.6 0-1 .4-1 1v2H8v2h1v10c0 .6.4 1 1 1h12c.6 0 1-.4 1-1V13h1v-2h-4V9zm-6 1h4v1h-4v-1zm7 3v9H11v-9h10z" />
-                                                </svg>
-                                                <input type="submit" style="display:none"> 
-                                                </button>
-                                            </form>
+                                        <form action="{{ route('admin.color.delete', $color->id) }}"  method="post">
+                                            @csrf
+                                            @method('delete')                  
+                                            <button class="text-rose-500 hover:text-rose-600 rounded-full cursor-pointer">
+                                            <span class="sr-only">Удалить</span>
+                                            <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32">
+                                                <path d="M13 15h2v6h-2zM17 15h2v6h-2z" />
+                                                <path d="M20 9c0-.6-.4-1-1-1h-6c-.6 0-1 .4-1 1v2H8v2h1v10c0 .6.4 1 1 1h12c.6 0 1-.4 1-1V13h1v-2h-4V9zm-6 1h4v1h-4v-1zm7 3v9H11v-9h10z" />
+                                            </svg>
+                                            <input type="submit" style="display:none"> 
+                                            </button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>

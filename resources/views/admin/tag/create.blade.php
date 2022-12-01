@@ -21,8 +21,8 @@
                         
                             <form action="{{ route('admin.tag.store') }}" method="post">
                                 @csrf
-                                <label class="block text-sm font-medium mb-1" for="title">Название тега</label>
-                                <input id="title" class="form-input w-full" name="title" type="text" placeholder="Наименование">
+                                <label class="block text-sm font-medium mb-1" for="tag">Название тега</label>
+                                <input id="tag" class="form-input w-full" name="name" type="text" placeholder="Наименование">
                                
                                 <input type="submit" value="Добавить" class="mt-3 btn bg-indigo-500 hover:bg-indigo-600 text-white">
                             </form>

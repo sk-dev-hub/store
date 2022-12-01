@@ -10,21 +10,21 @@
 
             <!-- Left: Title -->
             <div class="mb-4 sm:mb-0">
-                <h1 class="text-2xl md:text-3xl text-slate-800 font-bold">Тег ✨</h1>
+                <h1 class="text-2xl md:text-3xl text-slate-800 font-bold">Цвет ✨</h1>
             </div>
 
                         <!-- Right: Actions -->
                         <div class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
                        
-                        <!-- Edit category button -->
+                        <!-- Edit color button -->
                         <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
-                            <a href="{{ route('admin.tag.edit', $tag->id) }}">
+                            <a href="{{ route('admin.color.edit', $color->id) }}">
                                 <span class="hidden xs:block">Редактировать</span>
                             </a>
                         </button>
                        
-                            <!-- Delete category button -->
-                        <form action="{{ route('admin.tag.delete', $tag->id) }}" class="btn bg-rose-500 hover:bg-rose-600 text-white cursor-pointer" method="post">
+                            <!-- Delete color button -->
+                        <form action="{{ route('admin.color.delete', $color->id) }}" class="btn bg-rose-500 hover:bg-rose-600 text-white cursor-pointer" method="post">
                             @csrf
                             @method('delete')
                             <input type="submit" class="hidden xs:block cursor-pointer" value="Удалить">
@@ -58,10 +58,10 @@
                             <!-- Row -->    
                             <tr>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                        <div class="font-medium text-sky-500">#{{ $tag->id }}</div>
+                                        <div class="font-medium text-sky-500">#{{ $color->id }}</div>
                                 </td>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                        <div class="font-medium text-slate-800">{{ $tag->name }}</div>
+                                        <div class="font-medium text-slate-800">{{ $color->name }}</div>
                                 </td>
                             </tr>
 

@@ -7,7 +7,7 @@
 
         <!-- Page header -->
         <div class="mb-8">
-            <h1 class="text-2xl md:text-3xl text-slate-800 font-bold">Редактировать тег: {{ $tag->name }} ✨</h1>
+            <h1 class="text-2xl md:text-3xl text-slate-800 font-bold">Редактировать цвет: {{ $color->name }} ✨</h1>
         </div>
 
         <div class="border-t border-slate-200">
@@ -19,11 +19,11 @@
                 <div>
                     <div class="grid gap-5 md:grid-cols-3">
                         
-                            <form action="{{ route('admin.tag.update', $tag->id) }}" method="post">
+                            <form action="{{ route('admin.color.update', $color->id) }}" method="post">
                                 @csrf
                                 @method('patch')
-                                <label class="block text-sm font-medium mb-1" for="tag">Название тега</label>
-                                <input id="tag" class="form-input w-full" name="name" type="text" placeholder="Наименование" value="{{ $tag->name }}">
+                                <label class="block text-sm font-medium mb-1" for="color">Название цвета</label>
+                                <input id="color" class="form-input w-full" name="name" type="text" placeholder="Наименование" value="{{ $color->name }}">
                                
                                 <input type="submit" value="Изменить" class="mt-3 btn bg-indigo-500 hover:bg-indigo-600 text-white">
                             </form>

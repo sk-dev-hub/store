@@ -43,6 +43,17 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::delete('/{tag}', DeleteController::class)->name('admin.tag.delete');
     });
 
+        //Цвета
+        Route::group(['namespace' => 'Color', 'prefix' => 'colors'], function () {
+            Route::get('/', IndexController::class)->name('admin.color.index');
+            Route::get('/create', CreateController::class)->name('admin.color.create');
+            Route::post('/', StoreController::class)->name('admin.color.store');
+            Route::get('/{color}', ShowController::class)->name('admin.color.show');
+            Route::get('/{color}/edit', EditController::class)->name('admin.color.edit');
+            Route::patch('/{color}', UpdateController::class)->name('admin.color.update');
+            Route::delete('/{color}', DeleteController::class)->name('admin.color.delete');
+        });
+
 });
 
 
