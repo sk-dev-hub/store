@@ -65,6 +65,17 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
             Route::delete('/{user}', DeleteController::class)->name('admin.user.delete');
         });
 
+        //Продукты
+        Route::group(['namespace' => 'Product', 'prefix' => 'products'], function () {
+            Route::get('/', IndexController::class)->name('admin.product.index');
+            Route::get('/create', CreateController::class)->name('admin.product.create');
+            Route::post('/', StoreController::class)->name('admin.product.store');
+            Route::get('/{product}', ShowController::class)->name('admin.product.show');
+            Route::get('/{product}/edit', EditController::class)->name('admin.product.edit');
+            Route::patch('/{product}', UpdateController::class)->name('admin.product.update');
+            Route::delete('/{product}', DeleteController::class)->name('admin.product.delete');
+        });
+
 });
 
 

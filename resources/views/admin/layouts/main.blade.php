@@ -14,8 +14,10 @@
     
     @vite(
         'resources/css/mosaic/style_main.css',
+        'resources/css/mosaic/style.css',
         'resources/css/app.css',
         'resources/js/app.js',
+        
         )
 
 

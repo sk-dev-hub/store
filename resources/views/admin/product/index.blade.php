@@ -10,7 +10,7 @@
 
             <!-- Left: Title -->
             <div class="mb-4 sm:mb-0">
-                <h1 class="text-2xl md:text-3xl text-slate-800 font-bold">Пользователи ✨</h1>
+                <h1 class="text-2xl md:text-3xl text-slate-800 font-bold">Продукты ✨</h1>
             </div>
 
             <!-- Right: Actions -->
@@ -22,8 +22,8 @@
                     <svg class="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
                         <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
                     </svg>
-                    <a href="{{ route('admin.user.create') }}">
-                        <span class="hidden xs:block ml-2">Создать пользователя</span>
+                    <a href="{{ route('admin.product.create') }}">
+                        <span class="hidden xs:block ml-2">Создать продукт</span>
                     </a>
                 </button>
 
@@ -32,10 +32,11 @@
         </div>
 
 
+
         <!-- Table -->
         <div class="bg-white shadow-lg rounded-sm border border-slate-200 mb-8">
             <header class="px-5 py-4">
-                <h2 class="font-semibold text-slate-800">Пользователей <span class="text-slate-400 font-medium">{{ $users->count() }}</span></h2>
+                <h2 class="font-semibold text-slate-800">Продуктов <span class="text-slate-400 font-medium">{{ $products->count() }}</span></h2>
             </header>
             <div x-data="handleSelect">
 
@@ -57,22 +58,19 @@
                                     <div class="font-semibold text-left">id</div>
                                 </th>
                                 <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <div class="font-semibold text-left">Имя</div>
+                                    <div class="font-semibold text-left"></div>
                                 </th>
                                 <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <div class="font-semibold text-left">Фамилия</div>
+                                    <div class="font-semibold text-left">Название</div>
                                 </th>
                                 <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <div class="font-semibold text-left">Отчество</div>
+                                    <div class="font-semibold text-left">Категория</div>
                                 </th>
                                 <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <div class="font-semibold text-left">Email</div>
+                                    <div class="font-semibold text-left">Цена</div>
                                 </th>
                                 <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <div class="font-semibold text-left">Пол</div>
-                                </th>
-                                <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <div class="font-semibold text-left">Адрес</div>
+                                    <div class="font-semibold text-left">На складе</div>
                                 </th>
                                 <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                     <div class="font-semibold text-left">Действия</div>
@@ -82,7 +80,7 @@
                         <!-- Table body -->
                         <tbody class="text-sm divide-y divide-slate-200">
                             <!-- Row -->
-                            @foreach ($users as $user)      
+                            @foreach ($products as $product)      
                             <tr>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                                     <div class="flex items-center">
@@ -93,45 +91,34 @@
                                     </div>
                                 </td>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <a href="{{ route('admin.user.show', $user->id) }}">
-                                        <div class="font-medium text-sky-500">#{{ $user->id }}</div>
+                                    <a href="{{ route('admin.product.show', $product->id) }}">
+                                        <div class="font-medium text-sky-500">#{{ $product->id }}</div>
                                     </a>
                                 </td>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <a href="{{ route('admin.user.show', $user->id) }}">
-                                        <div class="font-medium text-slate-800">{{ $user->name }}</div>
+                                    <div>
+                                        <img class="mt-7" src="{{ url('storage/' . $product->preview_img) }}" alt="Главное" width="50px">
+                                    </div>
+                                </td>
+                                <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                    <a href="{{ route('admin.product.show', $product->id) }}">
+                                        <div class="font-medium text-slate-800">{{ $product->name }}</div>
                                     </a>
                                 </td>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <a href="{{ route('admin.user.show', $user->id) }}">
-                                        <div class="font-medium text-slate-800">{{ $user->surname }}</div>
+                                    <a href="{{ route('admin.product.show', $product->id) }}">
+                                        <div class="font-medium text-slate-800">{{ $product->category->title }}</div>
                                     </a>
                                 </td>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <a href="{{ route('admin.user.show', $user->id) }}">
-                                        <div class="font-medium text-slate-800">{{ $user->patronymic }}</div>
-                                    </a>
+                                        <div class="font-medium text-slate-800">{{ $product->price }}</div>
                                 </td>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <a href="{{ route('admin.user.show', $user->id) }}">
-                                        <div class="font-medium text-slate-800">{{ $user->email }}</div>
-                                    </a>
-                                </td>
-                                <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <a href="{{ route('admin.user.show', $user->id) }}">
-                                        <div class="font-medium text-slate-800">
-                                            {{ $user->genderTitle }}
-                                        </div>
-                                    </a>
-                                </td>
-                                <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
-                                    <a href="{{ route('admin.user.show', $user->id) }}">
-                                        <div class="font-medium text-slate-800">{{ $user->address }}</div>
-                                    </a>
+                                        <div class="font-medium text-slate-800">{{ $product->count }}</div>
                                 </td>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
                                     <div class="space-x-1 flex flex-row">
-                                        <a href="{{ route('admin.user.edit', $user->id) }}">
+                                        <a href="{{ route('admin.product.edit', $product->id) }}">
                                             <button class="text-slate-400 hover:text-slate-500 rounded-full">
                                                 <span class="sr-only">Редактировать</span>
                                                 <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32">
@@ -139,7 +126,7 @@
                                                 </svg>
                                             </button>
                                         </a>
-                                        <form action="{{ route('admin.user.delete', $user->id) }}"  method="post">
+                                        <form action="{{ route('admin.product.delete', $product->id) }}"  method="post">
                                             @csrf
                                             @method('delete')                  
                                             <button class="text-rose-500 hover:text-rose-600 rounded-full cursor-pointer">
