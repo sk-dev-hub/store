@@ -39,6 +39,10 @@
                                     <input id="price" class="form-input w-full" name="price" type="text" placeholder="Цена" value="{{ $product->price }}">
                                 </div>
                                 <div class="my-2 ml-3">
+                                    <label class="block text-sm font-medium mb-1" for="old_price">Старая цена</label>
+                                    <input id="old_price" class="form-input w-full" name="old_price" type="text" placeholder="Цена" value="{{ old('price')}}">
+                                </div>
+                                <div class="my-2 ml-3">
                                     <label class="block text-sm font-medium mb-1" for="count">Колличество на складе</label>
                                     <input id="count" class="form-input w-full" name="count" type="text" placeholder="Колличество" value="{{ $product->count }}">
                                 </div>

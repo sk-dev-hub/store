@@ -29,6 +29,7 @@ class UpdateRequest extends FormRequest
             'description' => 'required|string',
             'content' => 'required|string',
             'price' => 'required|integer',
+            'old_price' => 'nullable|integer',
             'count' => 'required|integer',
             'tags' => 'nullable|array',
             'tags.*' => 'nullable|integer|exists:tags,id',  //проверка для элементов внутри массива
