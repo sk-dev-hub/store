@@ -87,6 +87,19 @@
                                 </div>
 
                                 <div class="my-2 ml-3">
+                                    <label class="block text-sm font-medium mb-1" for="group">Группа</label>
+                                    <select id="group" class="form-select" name="group_id">
+                                        <option disabled selected>Выберите группу</option>
+                                            @foreach ($groups as $group)
+                                                <option value="{{ $group->id }}"
+                                                    {{ $group->id == $product->group_id ? 'selected' : '' }}
+                                                    >{{ $group->title }}
+                                                </option>
+                                            @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="my-2 ml-3">
                                     <label class="block text-sm font-medium mb-1" for="preview_img">Превью изображения</label>
                                         <div>
                                             <img class="mt-7" src="{{ url('storage/' . $product->preview_img) }}" alt="Главное" width="200px">

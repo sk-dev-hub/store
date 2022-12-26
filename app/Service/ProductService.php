@@ -8,9 +8,7 @@ use Illuminate\Support\Facades\Db;
 use App\Models\Product;
 use App\Models\ProductTag;
 use App\Models\ProductColors;
-
-
-
+use App\Models\ProductImage;
 
 class ProductService{
 
@@ -32,11 +30,13 @@ class ProductService{
             }
 
             if($request->hasFile('preview_img')){
-
-                $data['preview_img'] = Storage::disk('public')->put('/images/product',  $data['preview_img']);
-                
+                $data['preview_img'] = Storage::disk('public')->put('/images/product',  $data['preview_img']);               
             }
 
+            if($request->hasFile('product_images')){
+                $productImages = $data['product_images'];
+                unset($data['product_images']);                
+            }
             
             $product = Product::firstOrCreate([
                 'name' => $data['name']                 //проверка на уникальность по названию товара
@@ -63,6 +63,22 @@ class ProductService{
                     ]);
                 };
             }
+
+            foreach ($productImages as $productImage){
+                
+                //не болше 3 картинок
+                $currentImagesCount = ProductImage::where('product_id', $product->id)->count();
+
+                if($currentImagesCount > 3) continue;
+
+                    $filePath = Storage::disk('public')->put('/images/product',  $productImage); 
+                    ProductImage::create([
+                        'product_id' => $product->id,
+                        'file_path' => $filePath,
+                    ]);             
+            }
+
+
 
 
             Db::commit();

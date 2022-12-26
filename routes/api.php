@@ -24,6 +24,10 @@ Route::group(['namespace' => 'App\Http\Controllers\API'], function () {
     //Продукты
     Route::group(['namespace' => 'Product', 'prefix' => 'products'], function () {
         Route::get('/', IndexController::class)->name('api.product.index');
+        Route::get('/filters', FilterListController::class)->name('api.product.filter');
+        Route::get('/{product}', ShowController::class)->name('api.product.show');
+
+
     });
 
 });

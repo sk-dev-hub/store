@@ -337,6 +337,19 @@
                                 </div>
 
                                 <div class="my-2 ml-3">
+                                    <label class="block text-sm font-medium mb-1" for="group">Группа</label>
+                                    <select id="group" class="form-select" name="group_id">
+                                        <option disabled selected>Выберите категорию</option>
+                                            @foreach ($groups as $group)
+                                                <option value="{{ $group->id }}"
+                                                    {{ $group->id == old('group') ? 'selected' : '' }}
+                                                    >{{ $group->title }}
+                                                </option>
+                                            @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="my-2 ml-3">
                                     <label class="block text-sm font-medium mb-1" for="preview_img">Превью изображение</label>
                                     
                                         <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-indigo cursor-pointer hover:bg-indigo-500 hover:text-white">
@@ -346,7 +359,21 @@
                                             <span class="mt-2 text-base leading-normal">Выберите файл</span>
                                             <input id="preview_img" type='file' class="hidden" name="preview_img" />
                                         </label>
+                                </div>
 
+                                <div class="my-2 ml-3">
+                                    <label class="block text-sm font-medium mb-1" for="product_images[]">Изображние товара 1</label>       
+                                    <input id="product_images[]" class="form-input w-full" type="file" name="product_images[]">
+                                </div>
+
+                                <div class="my-2 ml-3">
+                                    <label class="block text-sm font-medium mb-1" for="product_images[]">Изображние товара 2</label>       
+                                    <input id="product_images[]" class="form-input w-full" type="file" name="product_images[]">
+                                </div>
+
+                                <div class="my-2 ml-3">
+                                    <label class="block text-sm font-medium mb-1" for="product_images[]">Изображние товара 3</label>       
+                                    <input id="product_images[]" class="form-input w-full" type="file" name="product_images[]">
                                 </div>
 
                                 <div class="my-2 ml-3">

@@ -32,6 +32,17 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::delete('/{category}', DeleteController::class)->name('admin.category.delete');
     });
 
+//Группы
+    Route::group(['namespace' => 'Group', 'prefix' => 'groups'], function () {
+        Route::get('/', IndexController::class)->name('admin.group.index');
+        Route::get('/create', CreateController::class)->name('admin.group.create');
+        Route::post('/', StoreController::class)->name('admin.group.store');
+        Route::get('/{group}', ShowController::class)->name('admin.group.show');
+        Route::get('/{group}/edit', EditController::class)->name('admin.group.edit');
+        Route::patch('/{group}', UpdateController::class)->name('admin.group.update');
+        Route::delete('/{group}', DeleteController::class)->name('admin.group.delete');
+    });
+
     //Теги 
     Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {
         Route::get('/', IndexController::class)->name('admin.tag.index');

@@ -7,8 +7,7 @@ use App\Models\Product;
 use App\Models\Tag;
 use App\Models\Color;
 use App\Models\Category;
-
-
+use App\Models\Group;
 
 class EditController extends BaseController
 {
@@ -17,7 +16,9 @@ class EditController extends BaseController
         $tags = Tag::all();
         $colors = Color::all();
         $categories = Category::all();
+        $groups = Group::all();
 
-        return view('admin.product.edit', compact('product', 'colors', 'tags', 'categories'));
+
+        return view('admin.product.edit', compact('product', 'colors', 'tags', 'categories', 'groups'));
     }
 }

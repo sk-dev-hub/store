@@ -5,12 +5,11 @@ namespace App\Http\Resources\Product;
 use App\Http\Resources\Category\CategoryResource;
 use App\Http\Resources\Color\ColorResource;
 use App\Http\Resources\Product\ProductMinResource;
-use App\Http\Resources\Product\ProductImageResource;
 use App\Http\Resources\Group\GroupResource;
 use App\Models\Product;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductResource extends JsonResource
+class IndexProductResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -20,7 +19,6 @@ class ProductResource extends JsonResource
      */
     public function toArray($request)
     {
-        $products = Product::where('group_id', $this->group_id)->get();
 
         return [
             'id' => $this->id,
@@ -32,9 +30,7 @@ class ProductResource extends JsonResource
             'count' => $this->count,
             'image_url' => $this->imageUrl,
             'is_published' => $this->is_published,
-            'product_images' => ProductImageResource::collection($this->productImages),
             'category' => new CategoryResource($this->category),
-            'group_products' => ProductMinResource::collection($products),
 
 
         ];

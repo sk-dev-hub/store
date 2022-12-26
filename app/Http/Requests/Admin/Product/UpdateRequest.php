@@ -36,6 +36,7 @@ class UpdateRequest extends FormRequest
             'colors' => 'nullable|array',
             'colors.*' => 'nullable|integer|exists:colors,id',
             'category_id' => 'nullable|integer',
+            'group_id' => 'nullable|integer',
             'preview_img' => 'nullable|image',
             
         ];

@@ -97,6 +97,16 @@
                         </tr>
                         <tr>
                             <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
+                                <div class="font-semibold text-left">Группа</div>
+                            </th>
+                            <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap md:w-1/2">
+                                <div class="flex items-center">
+                                    <div class="font-medium text-slate-800">{{$product->group->title }}</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                 <div class="font-semibold text-left">Колличество на складе</div>
                             </th>
                             <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap md:w-1/2">
