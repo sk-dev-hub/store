@@ -118,7 +118,7 @@
                                 </td>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
                                     <a href="{{ route('admin.product.show', $product->id) }}">                                
-                                        <div class="font-medium text-slate-800">{{ $product->group->title }}</div>
+                                        {{-- <div class="font-medium text-slate-800">{{ $product->group->title }}</div> --}}
                                     </a>
                                 </td>
                                 <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap">
